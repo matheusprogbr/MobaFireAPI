@@ -12,6 +12,10 @@ module.exports = async () => {
   $(filterHTML).each((i, e) => {
     const name = $(e).find('.champ-list__item__name b').text();
     const nameTitle = $(e).find('.champ-list__item__name span').text();
+    const avatar = `${prefixURl}${$(e)
+      .find('.champ-list__item__pic img')
+      .first()
+      .attr('src')}`;
     const linkBuild = `${prefixURl}${$(e).attr('href')}`;
     const roleImg = `${prefixURl}${$(e)
       .find('.champ-list__item__role img')
@@ -26,6 +30,7 @@ module.exports = async () => {
     const championDetails = {
       name,
       nameTitle,
+      avatar,
       linkBuild,
       roleImg,
       role,

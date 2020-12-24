@@ -2,9 +2,11 @@ const cheerioScrapping = require('./cheerioScrapping');
 
 module.exports = async (filterName) => {
   const champions = await cheerioScrapping();
-  const championFilter = champions.find((champion) => {
-    if (filterName === champion.name) return champion;
-  });
+  console.log(filterName);
+  const championFilter = champions.find(
+    (champion) => filterName.toUpperCase() === champion.name.toUpperCase()
+  );
+  console.log(championFilter);
 
   return championFilter;
 };
